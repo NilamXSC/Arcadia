@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --glass: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.12);
+  --clay: #f0e6e0;
+  --neo: #1a1a1a;
+  --neo-yellow: #f7e033;
+  --skew: -2deg;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; }
+
+/* Glassmorphism */
+.glass { 
+  background: rgba(15, 23, 42, 0.6); 
+  backdrop-filter: blur(20px); 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+/* Neumorphism */
+.neumo { 
+  background: #1e293b; 
+  box-shadow: inset 2px 2px 4px #334155, inset -2px -2px 4px #0f172a; 
+  border-radius: 12px; 
+}
+
+/* Claymorphism */
+.clay-card { 
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.6)); 
+  backdrop-filter: blur(10px);
+  border-radius: 24px; 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.4),
+    -8px -8px 16px rgba(255, 255, 255, 0.05);
+}
+
+/* Neo-brutalism */
+.neo-btn { 
+  background: var(--neo-yellow); 
+  color: var(--neo); 
+  font-weight: 700; 
+  border: 3px solid var(--neo); 
+  box-shadow: 4px 4px 0 var(--neo); 
+}
+.neo-btn:hover { 
+  transform: translate(2px,2px); 
+  box-shadow: 2px 2px 0 var(--neo); 
+}
+
+.skew-accent { transform: skew(var(--skew)); }
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}

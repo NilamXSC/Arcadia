@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcadia Health - AI-Powered Healthcare Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Arcadia Health</h1>
+            <p class="subtitle">AI-Powered Healthcare Assistant for Rural and Semi-Urban India</p>
+        </header>
+
+        <main>
+            <!-- System Status Section -->
+            <section class="card">
+                <h2>System Status</h2>
+                <div id="status" class="status-container">
+                    <div class="status-indicator" id="statusIndicator">
+                        <span class="dot"></span>
+                        <span>Checking...</span>
+                    </div>
+                    <div id="statusDetails" class="status-details"></div>
+                </div>
+                <button onclick="checkStatus()" class="btn btn-primary">Refresh Status</button>
+            </section>
+
+            <!-- Encryption Demo Section -->
+            <section class="card">
+                <h2>Data Encryption Service</h2>
+                <p class="description">Test the encryption service for secure health data handling</p>
+                
+                <div class="form-group">
+                    <label for="encryptInput">Data to Encrypt:</label>
+                    <textarea id="encryptInput" rows="3" placeholder="Enter sensitive health data here..."></textarea>
+                </div>
+                
+                <div class="button-group">
+                    <button onclick="encryptData()" class="btn btn-primary">Encrypt</button>
+                    <button onclick="decryptData()" class="btn btn-secondary">Decrypt</button>
+                </div>
+                
+                <div id="encryptionResult" class="result-container"></div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="card">
+                <h2>Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📋</div>
+                        <h3>Lab Report Interpretation</h3>
+                        <p>Understand your lab reports in simple language</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💓</div>
+                        <h3>Vital Signs Analysis</h3>
+                        <p>Analyze and track your vital signs</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚨</div>
+                        <h3>Triage Assistant</h3>
+                        <p>Get guidance on healthcare urgency levels</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📚</div>
+                        <h3>Educational Content</h3>
+                        <p>Access health education materials</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Multi-Language Support</h3>
+                        <p>Available in 10+ Indian languages</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Privacy & Security</h3>
+                        <p>AES-256 encryption for all health data</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safety Notice -->
+            <section class="card notice">
+                <h2>⚠️ Important Safety Notice</h2>
+                <p>Arcadia Health provides <strong>educational guidance only</strong>. This system:</p>
+                <ul>
+                    <li>✅ Explains health data in simple language</li>
+                    <li>✅ Provides general health education</li>
+                    <li>✅ Offers triage guidance for care urgency</li>
+                    <li>❌ Does NOT provide medical diagnosis</li>
+                    <li>❌ Does NOT prescribe medications</li>
+                    <li>❌ Does NOT replace professional medical advice</li>
+                </ul>
+                <p class="warning">Always consult with qualified healthcare professionals for medical decisions.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Arcadia Health v1.0.0 - Empowering health literacy in rural and semi-urban India</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
