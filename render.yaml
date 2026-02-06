@@ -1,0 +1,21 @@
+services:
+  # Backend API Service
+  - type: web
+    name: arcadia-health-api
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRY
+        value: 7d
+      - key: MONGODB_URI
+        sync: false  # Set manually in dashboard or leave empty for demo mode
+    healthCheckPath: /api/health

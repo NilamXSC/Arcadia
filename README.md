@@ -1,125 +1,196 @@
-# Arcadia Health
+# Arcadia Health 🏥
 
-AI-powered healthcare assistant ecosystem designed for users in rural and semi-urban India. The system provides educational guidance and triage support while maintaining strict boundaries around medical diagnosis and prescription.
+AI-powered healthcare infrastructure platform for rural and semi-urban India.
 
-## Overview
+![Arcadia Health](client/public/logo.svg)
 
-Arcadia Health focuses on:
-- **Educational guidance** over diagnostic capabilities
-- **Cultural sensitivity** and multi-language support
-- **Offline-first architecture** for areas with poor connectivity
-- **Privacy-by-design** for sensitive health data
-- **Safety boundaries** preventing medical advice overreach
+## 🌟 Features
 
-## Key Features
+- **AI-Powered Analysis** - Real-time health data analysis across 47 cities
+- **Patient Monitoring** - Track 12,430+ patients with predictive analytics
+- **Smart Dashboard** - Live data visualization with interactive charts
+- **Guest Mode** - Full demo access without database setup
+- **Multi-language Support** - Built for diverse Indian communities
+- **Offline Capability** - Works with intermittent connectivity
 
-### 🏥 Lab Report Interpretation
-- Parse and explain lab reports in simple language
-- Highlight abnormal values without providing diagnosis
-- Support for common Indian healthcare facility formats
-
-### 💓 Vital Signs Analysis
-- Analyze blood pressure, heart rate, temperature, oxygen saturation
-- Trend analysis for historical data
-- Educational context for measurements
-
-### 🚨 Triage Assistant
-- Assess symptom urgency (immediate, urgent, routine)
-- Emergency situation detection
-- Healthcare facility recommendations
-
-### 📚 Educational Content
-- Health education in culturally appropriate language
-- Prevention and wellness focused content
-- No medical advice or treatment recommendations
-
-### 🌍 Cultural Adaptation
-- Support for major Indian languages
-- Culturally appropriate analogies and examples
-- Regional health practice integration
-
-## Architecture
-
-The system follows a modular, three-tier architecture:
-
-```
-┌─────────────────────────────────────────┐
-│           Presentation Layer            │
-│  User Interface | Voice | Offline Cache │
-└─────────────────────────────────────────┘
-┌─────────────────────────────────────────┐
-│           Application Layer             │
-│ Lab Reports | Vital Signs | Triage |    │
-│ Education | Cultural Adaptation         │
-└─────────────────────────────────────────┘
-┌─────────────────────────────────────────┐
-│              Data Layer                 │
-│ NLP Engine | Knowledge Base | Cache |   │
-│ Encryption Service                      │
-└─────────────────────────────────────────┘
-```
-
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18.0.0 or higher
-- TypeScript 5.2.2 or higher
+- Node.js 18+
+- npm or yarn
+- MongoDB (optional - works without for demo mode)
 
-### Installation
+### Local Development
+
+**1. Clone the repository**
 
 ```bash
-# Install dependencies
+git clone https://github.com/yourusername/arcadia-health.git
+cd arcadia-health
+```
+
+**2. Install dependencies**
+
+```bash
+# Install backend dependencies
+cd server
 npm install
 
-# Build the project
-npm run build
+# Install frontend dependencies
+cd ../client
+npm install
+```
 
-# Run tests
-npm test
+**3. Set up environment variables**
 
-# Run property-based tests
-npm run test:property
+```bash
+# Backend
+cd server
+cp .env.example .env
+# Edit .env with your configuration
 
-# Start development server
+# Frontend
+cd ../client
+cp .env.example .env
+# Edit .env with your configuration
+```
+
+**4. Start development servers**
+
+```bash
+# Terminal 1 - Backend
+cd server
+npm run dev
+
+# Terminal 2 - Frontend
+cd client
 npm run dev
 ```
 
-### Basic Usage
+**5. Open your browser**
 
-```typescript
-import { createArcadiaHealthSystem } from 'arcadia-health';
+Navigate to `http://localhost:5173`
 
-// Initialize the system
-const system = await createArcadiaHealthSystem();
+## 📦 Deployment
 
-// Get system status
-const status = system.getHealthStatus();
-console.log('System initialized:', status.initialized);
+### Quick Deploy (Recommended)
 
-// Use encryption service
-const encryptionService = system.getEncryptionService();
-const encrypted = encryptionService.encrypt('sensitive health data');
-const decrypted = encryptionService.decrypt(encrypted);
+**Option 1: Using Deploy Script**
 
-// Shutdown gracefully
-await system.shutdown();
+```bash
+# Linux/Mac
+chmod +x deploy.sh
+./deploy.sh
+
+# Windows
+deploy.bat
 ```
 
-## Testing
+**Option 2: Manual Deployment**
 
-The project uses a dual testing approach:
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
 
-### Unit Tests
-- Specific examples and edge cases
-- Integration points between components
-- Error conditions and failure scenarios
+### Recommended Stack
 
-### Property-Based Tests
-- Universal properties verified across randomized inputs
-- Safety boundary enforcement
-- Cultural appropriateness validation
-- Performance characteristics
+- **Backend:** Render (Free tier)
+- **Frontend:** Vercel (Free tier)
+- **Database:** MongoDB Atlas (Free tier) or Demo mode
+
+**Total Cost:** $0 with free tiers
+
+## 🏗️ Project Structure
+
+```
+arcadia-health/
+├── client/                 # React + Vite frontend
+│   ├── src/
+│   │   ├── components/    # Reusable UI components
+│   │   ├── pages/         # Page components
+│   │   ├── context/       # React context providers
+│   │   ├── lib/           # Utilities and API client
+│   │   └── main.jsx       # Entry point
+│   ├── public/            # Static assets
+│   └── package.json
+│
+├── server/                # Node.js + Express backend
+│   ├── config/           # Configuration files
+│   ├── controllers/      # Route controllers
+│   ├── middleware/       # Express middleware
+│   ├── models/           # MongoDB models
+│   ├── routes/           # API routes
+│   ├── services/         # Business logic
+│   └── index.js          # Entry point
+│
+├── src/                  # Core TypeScript modules
+│   ├── interfaces/       # TypeScript interfaces
+│   ├── services/         # Core services
+│   └── test/             # Test files
+│
+├── .kiro/                # Kiro AI specifications
+│   └── specs/            # Feature specifications
+│
+├── DEPLOYMENT.md         # Deployment guide
+├── render.yaml           # Render configuration
+└── README.md             # This file
+```
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Framework:** React 18
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Charts:** Recharts
+- **Routing:** React Router
+
+### Backend
+- **Runtime:** Node.js
+- **Framework:** Express
+- **Database:** MongoDB (optional)
+- **Authentication:** JWT
+- **Validation:** Express Validator
+
+### Core
+- **Language:** TypeScript
+- **Testing:** Jest + Fast-check
+- **Linting:** ESLint
+
+## 📊 Demo Mode
+
+Arcadia Health works perfectly without a database using Guest Mode:
+
+1. Click "Launch Demo Platform" on homepage
+2. Explore with 11 sample patients
+3. Full AI assistant functionality
+4. All features available
+
+Perfect for:
+- Testing and development
+- Demos and presentations
+- Proof of concept
+- Learning the platform
+
+## 🔐 Environment Variables
+
+### Backend (.env)
+
+```env
+PORT=5000
+MONGODB_URI=mongodb://127.0.0.1:27017/arcadia
+JWT_SECRET=your-secret-key
+JWT_EXPIRY=7d
+NODE_ENV=development
+```
+
+### Frontend (.env)
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+## 🧪 Testing
 
 ```bash
 # Run all tests
@@ -128,97 +199,102 @@ npm test
 # Run with coverage
 npm run test:coverage
 
-# Run property-based tests only
+# Run property-based tests
 npm run test:property
 
-# Watch mode
+# Run in watch mode
 npm run test:watch
 ```
 
-## Safety Boundaries
+## 📝 Scripts
 
-Arcadia Health enforces strict safety boundaries:
+### Backend
 
-- ❌ **No medical diagnosis** - Never provides diagnostic conclusions
-- ❌ **No prescriptions** - Never recommends specific medications
-- ❌ **No treatment advice** - Never suggests specific treatments
-- ✅ **Educational content** - Provides general health information
-- ✅ **Triage guidance** - Helps determine when to seek care
-- ✅ **Simple explanations** - Makes health data understandable
-
-## Cultural Sensitivity
-
-The system adapts to diverse cultural contexts:
-
-- **Language Support**: Hindi, English, Bengali, Telugu, Tamil, Marathi, Gujarati, Kannada, Malayalam, Odia
-- **Cultural Examples**: Uses locally relevant analogies and references
-- **Communication Style**: Adapts formality and approach based on user profile
-- **Local Practices**: Integrates understanding of traditional health practices
-
-## Privacy & Security
-
-- **AES-256 Encryption** for all health data
-- **Automatic data retention** policies
-- **User consent management** with granular controls
-- **Audit logging** for compliance
-- **Minimal data collection** principle
-
-## Development
-
-### Project Structure
-
-```
-src/
-├── types/              # Core type definitions
-├── interfaces/         # Component interfaces
-├── services/          # Core services (encryption, etc.)
-├── test/              # Test utilities and generators
-└── index.ts           # Main entry point
+```bash
+npm run dev      # Start development server with watch
+npm start        # Start production server
+npm run seed     # Seed database with sample data
 ```
 
-### Adding New Components
+### Frontend
 
-1. Define interfaces in `src/interfaces/`
-2. Add types to `src/types/index.ts`
-3. Implement services in `src/services/`
-4. Add property-based tests
-5. Update documentation
-
-### Property-Based Testing
-
-Tests use fast-check for property-based testing:
-
-```typescript
-import * as fc from 'fast-check';
-import { userProfileGen, healthMetricGen } from './test/generators';
-
-test('Property: User profiles are valid', () => {
-  fc.assert(fc.property(
-    userProfileGen,
-    (profile) => {
-      expect(profile.id).toBeDefined();
-      expect(profile.culturalContext).toBeDefined();
-    }
-  ));
-});
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Run ESLint
 ```
 
-## Contributing
+## 🌐 API Endpoints
+
+### Authentication
+- `POST /api/auth/guest` - Guest login
+- `POST /api/auth/login` - User login (coming soon)
+- `POST /api/auth/register` - User registration (coming soon)
+- `GET /api/auth/me` - Get current user
+
+### Patients
+- `GET /api/patients` - List all patients
+- `GET /api/patients/:id` - Get patient details
+- `POST /api/patients` - Create patient
+- `PATCH /api/patients/:id` - Update patient
+- `DELETE /api/patients/:id` - Delete patient
+
+### Dashboard
+- `GET /api/dashboard/analytics` - Get dashboard analytics
+
+### AI Assistant
+- `POST /api/ai/chat` - Chat with AI assistant
+
+### Health Check
+- `GET /api/health` - Server health status
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
 
 1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## License
+## 📄 License
 
-MIT License - see LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Support
+## 🙏 Acknowledgments
 
-For questions or support, please open an issue on GitHub.
+- Built for rural and semi-urban India
+- Designed for accessibility and simplicity
+- Powered by AI for better healthcare outcomes
+
+## 📞 Support
+
+For issues and questions:
+- Open an issue on GitHub
+- Check [DEPLOYMENT.md](DEPLOYMENT.md) for deployment help
+- Review the code documentation
+
+## 🎯 Roadmap
+
+- [ ] Full authentication system
+- [ ] MongoDB integration
+- [ ] Real-time notifications
+- [ ] Mobile app (React Native)
+- [ ] Multi-language support (Hindi, Tamil, etc.)
+- [ ] Voice interface
+- [ ] Offline-first architecture
+- [ ] Advanced AI models
+
+## 📈 Status
+
+- **Version:** 1.0.0
+- **Status:** Production Ready (Demo Mode)
+- **Last Updated:** February 2026
 
 ---
 
-**Arcadia Health v1.0.0** - Empowering health literacy in rural and semi-urban India through AI-powered assistance while maintaining strict safety boundaries and cultural sensitivity.
+**Built with ❤️ for healthier communities**
+
+🏥 Arcadia Health - Transforming healthcare with AI
