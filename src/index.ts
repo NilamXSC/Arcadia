@@ -7,7 +7,7 @@ import { SystemConfig, EncryptionConfig, LanguageConfig, PerformanceConfig, Priv
 import { EncryptionService, SecureStorage, DataRetentionManager } from './services/encryption';
 
 /**
- * Default system configure
+ * Default system configuration
  */
 export const defaultConfig: SystemConfig = {
   encryption: {
